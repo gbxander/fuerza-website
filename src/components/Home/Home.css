@@ -1,0 +1,13 @@
+.home-img-container {
+  background-image: url("../../images/fuerza_coach.jpeg");
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.home-container {
+  min-height: 500px;
+  background: rgba(0, 0, 0, 0.8);
+}
