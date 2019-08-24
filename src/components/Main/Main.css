@@ -1,13 +1,14 @@
 .ant-layout-header {
   height: 45px;
-  background: black;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0;
 }
 .ant-menu {
   font-family: "Cairo", sans-serif;
 }
 
 .ant-menu-dark {
-  background: black;
+  background: rgba(0, 0, 0, 0);
   color: white;
 }
 
@@ -24,21 +25,9 @@
   background-color: gold;
 }
 
-.main-img-container {
-  background-image: url("../fuerza-logo.png");
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  width: 100%;
-  height: 20vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
 .ant-menu-dark,
 .ant-menu-dark .ant-menu-sub {
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .header-social-media {
@@ -73,4 +62,12 @@
   font-size: 17px;
   height: 30px;
   top: -2px;
+}
+
+.social-media-row i:hover {
+  color: gold;
+}
+
+.social-media-row .ant-avatar {
+  background: #222326;
 }

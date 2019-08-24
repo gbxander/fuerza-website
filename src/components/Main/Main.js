@@ -1,6 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import { Layout, Menu, Row, Col, Icon, Button } from "antd"
+import { Layout, Menu, Row, Col, Icon, Button, Avatar } from "antd"
+import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Home from "../Home/Home"
 import About from "../About/About"
 import Philosophy from "../Philosophy"
@@ -16,26 +17,25 @@ const footerContentStyle = { marginBottom: 10, fontSize: 17 }
 const Main = props => {
   const iconStyle = { fontSize: 30, marginRight: 10 }
   const isHome = true
+  const stickyStyle = { position: "fixed", top: 0, width: "100%", zIndex: 1 }
   console.log("props: ", props)
   return (
     <React.Fragment>
-      <div style={{ background: "black", width: "100%" }}>
-        <div className="main-img-container"></div>
-      </div>
       <Layout className="layout">
         <Router>
-          <Header>
+          <Header style={stickyStyle}>
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={["2"]}
+              defaultSelectedKeys={["1"]}
               style={{
                 lineHeight: "45px",
                 fontSize: "17px",
+                background: "rgba(0, 0, 0, 0)",
               }}
             >
               <Menu.Item key="1">
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/about">About</Link>
@@ -58,7 +58,7 @@ const Main = props => {
             </Menu>
           </Header>
           <React.Fragment>
-            <Route path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/teams" component={Teams} />
             <Route path="/tuition" component={Philosophy} />
@@ -74,7 +74,7 @@ const Main = props => {
                   fontWeight: "bold",
                 }}
               >
-                {"Get in touch with us:"}
+                {"Connect with us:"}
               </div>
               <div style={footerContentStyle}>{`info@fuerza.com`}</div>
               <div style={footerContentStyle}>{"(323) 555-5555"}</div>
@@ -107,23 +107,40 @@ const MiddleDot = () => (
 )
 const SocialMediaRow = ({ isFooter = false }) => {
   const iconStyle = {
-    fontSize: isFooter ? 33 : 20,
+    fontSize: isFooter ? 30 : 20,
     marginRight: 15,
   }
 
+  const iconSize = 50
   return (
-    <Row style={{ marginBottom: 20 }}>
-      <a href="https://www.google.com/" target="_blank">
-        <Icon type="facebook" theme="filled" style={iconStyle} />
+    <Row style={{ marginBottom: 20 }} className="social-media-row">
+      <a
+        href="https://www.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Avatar icon="facebook" size={iconSize} style={iconStyle} />
       </a>
-      <a href="https://www.google.com/" target="_blank">
-        <Icon type="instagram" style={iconStyle} />
+      <a
+        href="https://www.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Avatar icon="instagram" size={iconSize} style={iconStyle} />
       </a>
-      <a href="https://www.google.com/" target="_blank">
-        <Icon type="youtube" theme="filled" style={iconStyle} />
+      <a
+        href="https://www.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Avatar icon="youtube" size={iconSize} style={iconStyle} />
       </a>
-      <a href="https://www.google.com/" target="_blank">
-        <Icon type="mail" style={iconStyle} />
+      <a
+        href="https://www.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Avatar icon="mail" size={iconSize} style={iconStyle} />
       </a>
     </Row>
   )

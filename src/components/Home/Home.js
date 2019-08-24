@@ -1,8 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Layout } from "antd"
+import { Layout, Button } from "antd"
 import Img from "gatsby-image"
 import "./Home.css"
+import { Link } from "react-router-dom"
 
 const { Content } = Layout
 
@@ -21,7 +22,15 @@ const Home = () => {
   return (
     <React.Fragment>
       <Layout>
-        <section className="home-img-container"></section>
+        <div className="home-hero">
+          <div className="hero-text">
+            <h1>FUERZA BASKETBALL ACADEMY</h1>
+            <p>'Dribbling towards success'</p>
+            <Link to="/about">
+              <Button>Learn More</Button>
+            </Link>
+          </div>
+        </div>
 
         <Content
           style={{
@@ -31,7 +40,7 @@ const Home = () => {
           }}
         >
           <div className="home-container">
-            <h1>ANNOUNCEMENTS</h1>
+            <div className="announcement-title">ANNOUNCEMENTS</div>
           </div>
         </Content>
       </Layout>
