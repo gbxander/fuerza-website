@@ -1,6 +1,6 @@
 import React from "react"
 import { Button, Icon } from "antd"
-import "./Donate.css"
+import "./Donate.less"
 import { FaHandHoldingHeart } from "react-icons/fa"
 const Donate = () => {
   return (

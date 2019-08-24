@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, Input, Button, Row, Col, Icon, Layout } from "antd"
-import "./Contact.css"
+import "./Contact.less"
 
 const { Content } = Layout
 const { TextArea } = Input

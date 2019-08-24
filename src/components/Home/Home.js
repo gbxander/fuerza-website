@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Layout, Button } from "antd"
 import Img from "gatsby-image"
-import "./Home.css"
+import "./Home.less"
 import { Link } from "react-router-dom"
 
 const { Content } = Layout
@@ -25,7 +25,7 @@ const Home = () => {
         <div className="home-hero">
           <div className="hero-text">
             <h1>FUERZA BASKETBALL ACADEMY</h1>
-            <p>'Dribbling towards success'</p>
+            <p>'Driving towards success'</p>
             <Link to="/about">
               <Button>Learn More</Button>
             </Link>
@@ -40,7 +40,7 @@ const Home = () => {
           }}
         >
           <div className="home-container">
-            <div className="announcement-title">ANNOUNCEMENTS</div>
+            <h1>ANNOUNCEMENTS</h1>
           </div>
         </Content>
       </Layout>

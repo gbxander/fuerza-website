@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { GiBasketballJersey } from "react-icons/gi"
 import { IoMdBasketball } from "react-icons/io"
-import "./Teams.css"
+import "./Teams.less"
 
 const { Content } = Layout
 
@@ -71,7 +71,7 @@ const Teams = () => {
                     cover={
                       <Img
                         fixed={imgData.imageOne.childImageSharp.fixed}
-                        className="team14u-img"
+                        className="teams-img"
                       />
                     }
                   >
@@ -92,7 +92,7 @@ const Teams = () => {
                     cover={
                       <Img
                         fixed={imgData.imageThree.childImageSharp.fixed}
-                        className="team14u-img"
+                        className="teams-img"
                       />
                     }
                   >
@@ -113,7 +113,7 @@ const Teams = () => {
                     cover={
                       <Img
                         fixed={imgData.imageTwo.childImageSharp.fixed}
-                        className="team14u-img"
+                        className="teams-img"
                       />
                     }
                   >

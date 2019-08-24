@@ -9,7 +9,7 @@ import Teams from "../Teams/Teams"
 import Contact from "../Contact/Contact"
 import Donate from "../Donate/Donate"
 import Pipeline from "../Pipeline"
-import "./Main.css"
+import "./Main.less"
 
 const { Header, Content, Footer } = Layout
 const { SubMenu } = Menu
@@ -21,7 +21,7 @@ const Main = props => {
   console.log("props: ", props)
   return (
     <React.Fragment>
-      <Layout className="layout">
+      <Layout className="main-layout">
         <Router>
           <Header style={stickyStyle}>
             <Menu
