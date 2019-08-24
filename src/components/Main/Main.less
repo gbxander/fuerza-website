@@ -1,0 +1,82 @@
+@import (reference) "../../styles/palette.less";
+
+.main-layout {
+  & .ant-layout {
+    background: @background;
+  }
+  & .ant-layout-header {
+    height: 45px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0;
+  }
+
+  & .ant-menu {
+    font-family: "Cairo", sans-serif;
+
+    & .ant-menu-item {
+      & a {
+        color: white;
+        &:hover {
+          color: @primary-red;
+        }
+      }
+    }
+  }
+
+  & .footer-container {
+    text-align: center;
+    background: black;
+    color: white;
+    font-family: "Cairo", sans-serif;
+    padding: 25px 50px;
+
+    & hr {
+      width: 700px;
+      margin-bottom: 15px;
+    }
+
+    & .footer-bottom {
+      margin: 50px 0;
+      font-size: 17px;
+    }
+
+    & .ant-btn {
+      color: white;
+      background: black;
+      font-size: 17px;
+      height: 30px;
+      top: -2px;
+    }
+
+    & .social-media-row {
+      & .ant-avatar {
+        background: #222326;
+
+        & i:hover {
+          color: @gold;
+        }
+      }
+    }
+  }
+}
+
+.ant-menu-dark {
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: @gold;
+}
+
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.9);
+  & a {
+    color: white;
+    &:hover {
+      color: @primary-red;
+    }
+  }
+}

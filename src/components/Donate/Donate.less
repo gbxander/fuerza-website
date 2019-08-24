@@ -1,0 +1,48 @@
+@import (reference) "../../styles/palette.less";
+
+.donation-container {
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  font-family: "Montserrat", sans-serif;
+
+  & button {
+    background-color: #7aadff;
+    padding: 0 30px;
+    font-size: 25px;
+    height: 55px;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: @primary-text;
+    opacity: 1;
+  }
+
+  & h1 {
+    font-size: 35px;
+    color: #3e3e3e;
+    margin-bottom: -5px;
+  }
+
+  & hr {
+    margin-bottom: 50px;
+  }
+
+  & .donate-prompt {
+    background-color: white;
+    border: 1px solid @grey-outline;
+    color: @primary-text;
+    padding: 50px 35px;
+    border-radius: 20px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  & .donate-paragraph {
+    font-size: 17px;
+    text-align: justify;
+    margin: 45px 0;
+  }
+}
