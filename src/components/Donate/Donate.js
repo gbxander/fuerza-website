@@ -1,7 +1,8 @@
 import React from "react"
 import { Button, Icon } from "antd"
-import "./Donate.less"
 import { FaHandHoldingHeart } from "react-icons/fa"
+import "./Donate.less"
+
 const Donate = () => {
   return (
     <div className="donation-container">

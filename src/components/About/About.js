@@ -1,8 +1,7 @@
 import React from "react"
-import { Carousel, Layout, Row, Col } from "antd"
+import { Layout, Row, Col } from "antd"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import { Link } from "react-router-dom"
+import { Link } from "@reach/router"
 import "./About.less"
 
 const { Content } = Layout

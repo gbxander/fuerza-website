@@ -1,9 +1,8 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Layout, Button } from "antd"
-import Img from "gatsby-image"
 import "./Home.less"
-import { Link } from "react-router-dom"
+import { Link } from "@reach/router"
 
 const { Content } = Layout
 

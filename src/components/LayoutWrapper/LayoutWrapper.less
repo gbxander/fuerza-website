@@ -1,0 +1,56 @@
+@import (reference) "../../styles/palette.less";
+
+.layout-container {
+  & .ant-layout {
+    background: @background;
+  }
+
+  & .ant-menu {
+    font-family: "Cairo", sans-serif;
+
+    & .ant-menu-item {
+      & a {
+        color: white;
+        &:hover {
+          color: @primary-red;
+        }
+      }
+    }
+  }
+}
+
+.ant-menu-dark {
+  background: rgba(0, 0, 0, 0);
+  color: white;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: @gold;
+}
+
+.ant-menu-dark,
+.ant-menu-dark .ant-menu-sub {
+  background: rgba(0, 0, 0, 0.9);
+  & a {
+    color: white;
+    &:hover {
+      color: @primary-red;
+    }
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}

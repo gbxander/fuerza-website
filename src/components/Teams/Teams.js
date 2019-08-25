@@ -3,7 +3,6 @@ import { Layout, Row, Col, Button, Card } from "antd"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { GiBasketballJersey } from "react-icons/gi"
-import { IoMdBasketball } from "react-icons/io"
 import "./Teams.less"
 
 const { Content } = Layout
