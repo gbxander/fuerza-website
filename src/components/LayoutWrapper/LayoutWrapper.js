@@ -7,15 +7,15 @@ import LayoutFooter from "./LayoutFooter/LayoutFooter"
 import "./LayoutWrapper.less"
 
 const LayoutWrapper = ({ children, tabKey }) => {
+  const layoutContentClass = tabKey !== "1" ? "layout-content" : ""
   return (
     <React.Fragment>
       <Location>
         {({ location }) => {
-          console.log("location", location)
           return (
             <Layout className="layout-container">
               <LayoutHeader tabKey={tabKey} location={location} />
-              <React.Fragment>{children}</React.Fragment>
+              <div className={layoutContentClass}>{children}</div>
               <LayoutFooter />
             </Layout>
           )

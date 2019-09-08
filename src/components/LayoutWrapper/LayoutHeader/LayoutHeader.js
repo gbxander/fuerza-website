@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Menu, Layout } from "antd"
 import { Link } from "@reach/router"
 import "./LayoutHeader.less"
@@ -7,17 +7,37 @@ const { Header } = Layout
 const { SubMenu } = Menu
 
 const LayoutHeader = ({ tabKey, location }) => {
-  const stickyStyle = { position: "fixed", top: 0, width: "100%", zIndex: 1 }
+  const [sticky, setSticky] = useState(false)
+  const homePageNav = sticky
+    ? "primary-sticky-nav"
+    : "primary-sticky-nav transparent-nav"
+  const navClass = tabKey === "1" ? homePageNav : "primary-sticky-nav"
+
+  useEffect(() => {
+    const nav = document.getElementById("nav")
+    const topOfNav = nav.offsetTop
+
+    const handleScroll = () => {
+      if (window.scrollY > topOfNav) {
+        setSticky(true)
+      } else {
+        setSticky(false)
+      }
+    }
+    window.addEventListener("scroll", handleScroll)
+
+    return () => window.addEventListener("scroll", handleScroll)
+  }, [sticky])
 
   return (
-    <Header style={stickyStyle}>
+    <Header id="nav" className={navClass}>
       <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={tabKey}
         style={{
-          lineHeight: "45px",
-          fontSize: "17px",
+          lineHeight: "55px",
+          fontSize: "18px",
           background: "rgba(0, 0, 0, 0)",
         }}
       >
