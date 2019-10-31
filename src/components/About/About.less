@@ -56,6 +56,11 @@
       opacity: 1;
     }
   }
+
+  .ant-layout-content {
+    width: 75%;
+    margin: 25px auto;
+  }
 }
 
 .about-our-teams {
@@ -119,5 +124,135 @@
   h1 {
     transition: 0.5s ease;
     opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-layout {
+    font-family: "Cairo", sans-serif;
+
+    & h1 {
+      font-size: 7.5vw;
+      text-align: center;
+      margin: 25px 0;
+      color: gold;
+      border: 2px solid black;
+      background: black;
+    }
+
+    & hr {
+      border-color: black;
+    }
+
+    & .about-prompt {
+      font-size: 15px;
+      text-align: justify;
+    }
+
+    & .about-img {
+      border-radius: 10px;
+      border: 2px solid #808080;
+    }
+
+    & .container {
+      position: relative;
+      width: 50%;
+
+      & .image {
+        opacity: 1;
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: 0.5s ease;
+        backface-visibility: hidden;
+      }
+
+      & .middle {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      &:hover .image {
+        opacity: 0.3;
+      }
+
+      &:hover .middle {
+        opacity: 1;
+      }
+    }
+
+    .ant-layout-content {
+      width: 100%;
+    }
+  }
+
+  .about-our-teams {
+    background-image: url("../../images/fuerza2_18u.jpeg");
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    width: 100%;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3e3e3e;
+    background-blend-mode: lighten;
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+
+    &:hover h1 {
+      opacity: 1;
+    }
+
+    h1 {
+      transition: 0.5s ease;
+      opacity: 0;
+    }
+  }
+
+  .about-our-process {
+    background-image: url("../../images/fuerza_coach.jpeg");
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    width: 100%;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3e3e3e;
+    background-blend-mode: lighten;
+    filter: grayscale(100%);
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+
+    &:hover h1 {
+      opacity: 1;
+    }
+
+    h1 {
+      transition: 0.5s ease;
+      opacity: 0;
+    }
   }
 }

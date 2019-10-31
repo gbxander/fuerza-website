@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Menu, Layout } from "antd"
+import BurgerMenu from "./BurgerMenu/BurgerMenu"
 import { Link } from "@reach/router"
+import { Menu, Layout } from "antd"
 import "./LayoutHeader.less"
 
 const { Header } = Layout
@@ -31,7 +32,9 @@ const LayoutHeader = ({ tabKey, location }) => {
 
   return (
     <Header id="nav" className={navClass}>
+      <BurgerMenu />
       <Menu
+        className="navbar_full_scr"
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={tabKey}

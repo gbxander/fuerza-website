@@ -59,33 +59,26 @@ class Contact extends React.Component {
 
     return (
       <Layout>
-        <Content style={{ padding: "0 275px", marginTop: 25 }}>
+        <Content className="content-container">
           <div className="contact-container">
             <Col>
-              <Row type="flex" align="middle">
+              <Row type="flex" align="middle" justify="center">
                 <h1>CONTACT US</h1>
-                <Icon
-                  type="mail"
-                  style={{
-                    fontSize: 35,
-                    marginLeft: 25,
-                    color: "#3e3e3e",
-                    lineHeight: 0.9,
-                  }}
-                />
+                <Icon className="contact-icon" type="mail" />
               </Row>
               <hr></hr>
             </Col>
-            <Col style={{ marginBottom: 20 }}>
+            <Col>
               <div className="contact-prompt">
-                Interested in learning more about our program? Get in touch with
-                us for more information.
+                Interested in learning more about our program? &nbsp;Get in
+                touch with us for more information.
               </div>
             </Col>
             <Form
               {...formItemLayout}
               onSubmit={this.handleSubmit}
               className="contact-form"
+              netlify
             >
               <Form.Item label="Name">
                 {getFieldDecorator("firstname", {

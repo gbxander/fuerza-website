@@ -32,9 +32,9 @@ const Home = () => {
         </div>
 
         <Content
+          className="home-container"
           style={{
             background: "white",
-            width: "900px",
             margin: "25px auto",
           }}
         >

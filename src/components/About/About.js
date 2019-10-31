@@ -35,13 +35,7 @@ const About = () => {
   return (
     <React.Fragment>
       <Layout className="about-layout">
-        <Content
-          style={{
-            background: "white",
-            width: "75%",
-            margin: "25px auto",
-          }}
-        >
+        <Content>
           <Col span={18} offset={3}>
             <h1>- OUR MISSION -</h1>
             <p>
@@ -85,7 +79,7 @@ const About = () => {
               <Col span={11} offset={2}>
                 <Link to="/teams">
                   <div className="about-our-process">
-                    <h1> - OUR PROCESS - </h1>
+                    <h1> - OUR STAFF - </h1>
                   </div>
                 </Link>
               </Col>

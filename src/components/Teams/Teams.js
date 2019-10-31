@@ -12,21 +12,21 @@ const Teams = () => {
     query {
       imageOne: file(relativePath: { eq: "fuerza_14u.jpeg" }) {
         childImageSharp {
-          fixed(height: 150, width: 150, grayscale: true) {
+          fixed(height: 150, width: 150, grayscale: false) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       imageTwo: file(relativePath: { eq: "fuerza_18ugirls.jpeg" }) {
         childImageSharp {
-          fixed(height: 150, width: 150, grayscale: true) {
+          fixed(height: 150, width: 150, grayscale: false) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       imageThree: file(relativePath: { eq: "fuerza_18u.jpeg" }) {
         childImageSharp {
-          fixed(height: 150, width: 150, grayscale: true) {
+          fixed(height: 150, width: 150, grayscale: false) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -76,7 +76,7 @@ const Teams = () => {
                   >
                     <Card.Meta
                       title="14U (8th Grade)"
-                      description={`PLAYERS BORN BETWEEN 2003-2004`}
+                      description={`BORN: Between 2003-2004`}
                     />
                     <Card.Meta
                       description={`WHERE: Lake St Recreational Center`}
@@ -96,8 +96,8 @@ const Teams = () => {
                     }
                   >
                     <Card.Meta
-                      title="18U (High School)"
-                      description={`PLAYERS BORN BETWEEN 2003-2004`}
+                      title={<span>18U (High School) </span>}
+                      description={`BORN: Between 2003-2004`}
                     />
                     <Card.Meta
                       description={`WHERE: Lake St Recreational Center`}
@@ -118,7 +118,7 @@ const Teams = () => {
                   >
                     <Card.Meta
                       title="18U Girls (High School)"
-                      description={`PLAYERS BORN BETWEEN 2003-2004`}
+                      description={`BORN: Between 2003-2004`}
                     />
                     <Card.Meta
                       description={`WHERE: Lake St Recreational Center`}
@@ -136,5 +136,7 @@ const Teams = () => {
     </React.Fragment>
   )
 }
+
+/* TODO: Create Metadata component */
 
 export default Teams

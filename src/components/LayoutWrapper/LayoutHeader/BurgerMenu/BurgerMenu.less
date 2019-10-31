@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+  .burger-menu-container {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .ant-btn-primary {
+      background-color: gold;
+      border-color: gold;
+      color: red;
+    }
+  }
+
+  .ant-drawer-content {
+    background: rgba(0, 0, 0, 0.8);
+
+    .ant-drawer-body {
+      padding: 0px;
+
+      .ant-menu {
+        background: rgba(0, 0, 0, 0);
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .burger-menu-container {
+    display: none;
+  }
+}
