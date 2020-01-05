@@ -1,21 +1,32 @@
+@import (reference) "../../styles/palette.less";
+
 .about-layout {
   font-family: "Cairo", sans-serif;
-
+  padding: 75px 0;
+  background: @alt-background;
   & h1 {
-    font-size: 35px;
+    font-size: 40px;
+    font-weight: 900;
     text-align: center;
-    margin: 25px 0;
-    color: gold;
-    border: 2px solid black;
-    background: black;
+    margin-bottom: 0;
+    margin-right: 15px;
+    color: @primary-text;
   }
 
+  & .target-icon {
+    font-size: 35px;
+    color: @primary-text;
+  }
   & hr {
     border-color: black;
   }
 
+  & .about-header {
+    margin-bottom: 30px;
+  }
+
   & .about-prompt {
-    font-size: 15px;
+    font-size: 17px;
     text-align: justify;
   }
 
@@ -68,8 +79,10 @@
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
-  width: 100%;
+  width: 25vw;
   height: 50vh;
+  margin: 0 auto;
+  margin-top: 35px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -79,20 +92,6 @@
   align-items: center;
   background-color: #3e3e3e;
   background-blend-mode: lighten;
-  filter: grayscale(100%);
-
-  &:hover {
-    filter: grayscale(0%);
-  }
-
-  &:hover h1 {
-    opacity: 1;
-  }
-
-  h1 {
-    transition: 0.5s ease;
-    opacity: 0;
-  }
 }
 
 .about-our-process {
@@ -100,31 +99,15 @@
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
-  width: 100%;
+  width: 22vw;
   height: 50vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #3e3e3e;
   background-blend-mode: lighten;
-  filter: grayscale(100%);
-
-  &:hover {
-    filter: grayscale(0%);
-  }
-
-  &:hover h1 {
-    opacity: 1;
-  }
-
-  h1 {
-    transition: 0.5s ease;
-    opacity: 0;
-  }
+  filter: grayscale(0%);
 }
 
 @media (max-width: 768px) {
@@ -132,12 +115,10 @@
     font-family: "Cairo", sans-serif;
 
     & h1 {
-      font-size: 7.5vw;
+      font-size: 9vw;
       text-align: center;
-      margin: 25px 0;
-      color: gold;
-      border: 2px solid black;
-      background: black;
+      color: @primary-text;
+      margin-right: 10px;
     }
 
     & hr {
@@ -145,8 +126,9 @@
     }
 
     & .about-prompt {
-      font-size: 15px;
-      text-align: justify;
+      font-size: 4.5vw;
+      text-align: left;
+      letter-spacing: 2px;
     }
 
     & .about-img {
@@ -197,8 +179,8 @@
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-    width: 100%;
-    height: 30vh;
+    width: 70vw;
+    height: 50vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -208,20 +190,6 @@
     align-items: center;
     background-color: #3e3e3e;
     background-blend-mode: lighten;
-    filter: grayscale(100%);
-
-    &:hover {
-      filter: grayscale(0%);
-    }
-
-    &:hover h1 {
-      opacity: 1;
-    }
-
-    h1 {
-      transition: 0.5s ease;
-      opacity: 0;
-    }
   }
 
   .about-our-process {
@@ -229,8 +197,8 @@
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
-    width: 100%;
-    height: 30vh;
+    width: 70vw;
+    height: 50vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -240,19 +208,6 @@
     align-items: center;
     background-color: #3e3e3e;
     background-blend-mode: lighten;
-    filter: grayscale(100%);
-
-    &:hover {
-      filter: grayscale(0%);
-    }
-
-    &:hover h1 {
-      opacity: 1;
-    }
-
-    h1 {
-      transition: 0.5s ease;
-      opacity: 0;
-    }
+    margin-bottom: 35px;
   }
 }

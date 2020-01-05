@@ -5,11 +5,12 @@ import "./BurgerMenu.less"
 
 const { SubMenu } = Menu
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ tabKey }) => {
   const [toggleCollapsed, setToggle] = useState(false)
   const handleSetToggle = () => {
     setToggle(!toggleCollapsed)
   }
+  console.log("tabKey", tabKey)
   return (
     <React.Fragment>
       <div className="burger-menu-container">
@@ -17,41 +18,35 @@ const BurgerMenu = () => {
           <Icon type={"menu"} />
         </Button>
         <Drawer
-          title={
-            <span>
-              Fuerza Academy <Icon type="dribbble" />
-            </span>
-          }
           placement="right"
           closable={false}
           onClose={handleSetToggle}
           visible={toggleCollapsed}
         >
           <Menu
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={[tabKey]}
             mode="inline"
             theme="dark"
+            defaultOpenKeys={["sub1"]}
             onClick={handleSetToggle}
           >
             <Menu.Item key="1">
-              <Link to="/">Home</Link>
+              <Link to="/#home">Home</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="/about">About</Link>
+              <Link to="/#about">About</Link>
             </Menu.Item>
-            <SubMenu key="sub1" title="Program">
-              <Menu.Item key="3">
-                <Link to="teams">Teams</Link>
-              </Menu.Item>
-              <Menu.Item key="4">
-                <Link to="tuition">Program Tuition</Link>
-              </Menu.Item>
-            </SubMenu>
+            <Menu.Item key="3">
+              <Link to="/#teams">Teams</Link>
+            </Menu.Item>
+            <Menu.Item key="4">
+              <Link to="/#events">Events</Link>
+            </Menu.Item>
             <Menu.Item key="5">
               <Link to="contact">Contact</Link>
             </Menu.Item>
             <Menu.Item key="6">
-              <Link to="donate">Donate</Link>
+              <Link to="/#donate">Donate</Link>
             </Menu.Item>
           </Menu>
         </Drawer>

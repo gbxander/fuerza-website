@@ -1,11 +1,41 @@
 @import (reference) "../../../styles/palette.less";
 
-.social-media-row {
-  & .ant-avatar {
-    background: #222326;
+@media (min-width: 768px) {
+  .social-media-row {
+    margin: 25px;
+    & .ant-avatar {
+      background: #222326;
 
-    & i:hover {
-      color: @gold;
+      &.social-media-icon {
+        margin-right: 10px;
+        font-size: 30px;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+      }
+      & i:hover {
+        color: @gold;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .social-media-row {
+    margin: 25px;
+    & .ant-avatar {
+      background: #222326;
+
+      &.social-media-icon {
+        margin-right: 10px;
+        font-size: 25px;
+        height: 45px;
+        width: 45px;
+        line-height: 45px;
+      }
+      & i:hover {
+        color: @gold;
+      }
     }
   }
 }

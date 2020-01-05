@@ -1,10 +1,11 @@
 import React from "react"
 import { Layout, Row, Col } from "antd"
 import { useStaticQuery, graphql } from "gatsby"
+import { IoIosBook, IoIosRocket } from "react-icons/io"
 import { Link } from "@reach/router"
+import Img from "gatsby-image"
+import { Element } from "react-scroll"
 import "./About.less"
-
-const { Content } = Layout
 
 const About = () => {
   const imgData = useStaticQuery(graphql`
@@ -33,61 +34,68 @@ const About = () => {
     }
   `)
   return (
-    <React.Fragment>
-      <Layout className="about-layout">
-        <Content>
-          <Col span={18} offset={3}>
-            <h1>- OUR MISSION -</h1>
+    <section id="about" className="about-layout">
+      <Col span={16} offset={4} style={{ marginBottom: 50 }}>
+        <Row
+          type="flex"
+          align="middle"
+          justify="center"
+          className="about-header"
+        >
+          <h1>OUR STORY</h1>
+          <IoIosBook className="target-icon" />
+        </Row>
+        <Row type="flex" justify="center" align="top">
+          <Col md={{ span: 7 }} xs={{ span: 32, offset: 0 }}>
+            <div className="about-our-process"></div>
+          </Col>
+
+          <Col md={{ span: 13, offset: 2 }} xs={{ span: 32, offset: 0 }}>
+            <div className="about-prompt">
+              <p>
+                As a team of coaches with a collective desire and commitment to
+                inspiring and uplifting our communities through basketball, we
+                started the Fuerza Basketball Academy with the primary goal of
+                developing and teaching the fundamentals of basketball while
+                promoting a growth mindset and important life skills such as
+                leadership, sportsmanship, and teamwork to young athletes
+                residing in underserved communities across Los Angeles.
+              </p>
+              <p>
+                We wholeheartedly believe in the positive effect that sports can
+                have on the individual, which is why we've dedicated our time
+                and effort as an organization to cultivating a safe and
+                inclusive training environment where prospective athletes can
+                thrive without fear of failure and grow as individuals.
+              </p>
+            </div>
+          </Col>
+        </Row>
+      </Col>
+      <div>
+        <Col md={{ span: 12, offset: 6 }} xs={{ span: 18, offset: 3 }}>
+          <Row
+            type="flex"
+            align="middle"
+            justify="center"
+            className="about-header"
+          >
+            <h1>OUR MISSION</h1>
+            <IoIosRocket className="target-icon" />
+          </Row>
+          <div className="about-prompt">
             <p>
-              A lacus vestibulum sed arcu non odio euismod lacinia at. Tincidunt
-              nunc pulvinar sapien et ligula ullamcorper malesuada. Imperdiet
-              massa tincidunt nunc pulvinar sapien et. Nibh tortor id aliquet
-              lectus proin nibh nisl condimentum. Sed viverra ipsum nunc
-              aliquet. Erat velit scelerisque in dictum. Aliquet porttitor lacus
-              luctus accumsan tortor.
-            </p>{" "}
+              To provide high quality and transformative youth basketball
+              training to athletes from underserved communities across the city
+              of Los Angeles.
+            </p>
+          </div>
+          <Col>
+            <div className="about-our-teams"></div>
           </Col>
-          <Col span={18} offset={3}>
-            <h1> - OUR STORY -</h1>
-            <Row type="flex" justify="center" align="middle">
-              <Col span={22}>
-                <div className="about-prompt">
-                  <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>{" "}
-                  <p>
-                    {" "}
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                </div>
-              </Col>
-            </Row>
-            <Row type="flex" justify="center" align="middle">
-              <Col span={11}>
-                <Link to="/teams">
-                  <div className="about-our-teams">
-                    <h1> - OUR TEAMS - </h1>
-                  </div>
-                </Link>
-              </Col>
-              <Col span={11} offset={2}>
-                <Link to="/teams">
-                  <div className="about-our-process">
-                    <h1> - OUR STAFF - </h1>
-                  </div>
-                </Link>
-              </Col>
-            </Row>
-          </Col>
-        </Content>
-      </Layout>
-    </React.Fragment>
+        </Col>
+      </div>
+    </section>
   )
 }
 export default About

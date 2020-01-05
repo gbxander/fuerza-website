@@ -5,15 +5,22 @@
     background: white;
   }
 
-  & .ant-menu {
+  & .ant-anchor-wrapper {
     font-family: "Cairo", sans-serif;
+    background: none;
+    padding: 10px 0;
+    & a {
+      color: white;
+      font-size: 20px;
+      margin-right: 25px;
 
-    & .ant-menu-item {
-      & a {
-        color: white;
-        &:hover {
-          color: @primary-red;
-        }
+      &:hover {
+        color: @primary-red;
+      }
+
+      &.ant-anchor-link-title-active {
+        color: gold;
+        text-decoration: underline solid red;
       }
     }
   }

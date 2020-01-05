@@ -15,24 +15,22 @@ const LayoutFooter = () => {
           style={{
             ...footerContentStyle,
             fontSize: 20,
+            marginTop: 20,
             fontWeight: "bold",
           }}
         >
-          {"Connect with us:"}
+          {"CONNECT WITH US:"}
         </div>
         <div style={footerContentStyle}>{`info@fuerza.com`}</div>
-        <div style={footerContentStyle}>{"(323) 555-5555"}</div>
         <SocialMediaRow isFooter={true} />
         <hr></hr>
-        <Row type="flex" align="center" className="footer-bottom">
+        <Row type="flex" justify="center" className="footer-bottom">
           <MiddleDot />
           <div>{"A 501(c)3 non-profit"}</div>
           <MiddleDot />
-          <div>EIN 44-2222</div>
+          <div>EIN 84-2604412</div>
           <MiddleDot />
           <div>{"©2019 Fuerza Basketball Academy"}</div>
-          <MiddleDot />
-          <Button>Donate</Button>
         </Row>
       </Col>
     </Footer>

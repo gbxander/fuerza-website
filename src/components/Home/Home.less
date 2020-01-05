@@ -1,20 +1,6 @@
 @import (reference) "../../styles/palette.less";
 
 @media (min-width: 769px) {
-  .home-container {
-    min-height: 500px;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px 50px;
-    width: 100%;
-    text-align: center;
-
-    & h1 {
-      color: gold;
-      font-size: 4vw;
-      font-family: "Teko", sans-serif;
-    }
-  }
-
   .home-hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
       url("../../images/fuerza_coach.jpeg");
@@ -22,7 +8,7 @@
     background-position: 50% 45%;
     position: relative;
     padding: 20px 50px 50px;
-    height: 500px;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -44,6 +30,12 @@
         margin-bottom: 20px;
       }
     }
+    .down-button {
+      animation-name: floating;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
 
     & .ant-btn {
       height: 35px;
@@ -64,16 +56,8 @@
 }
 @media (max-width: 768px) {
   .home-container {
-    min-height: 500px;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px 50px;
-    width: 100%;
-    text-align: center;
-
-    & h1 {
-      color: gold;
-      font-size: 7vw;
-      font-family: "Teko", sans-serif;
+    .full-scr-contact {
+      display: none;
     }
   }
 
@@ -84,7 +68,8 @@
     background-position: 50% 45%;
     position: relative;
     padding: 20px 50px 50px;
-    height: 100vw;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -107,6 +92,9 @@
       }
     }
 
+    & .hero-down-icon {
+      display: none;
+    }
     & .ant-btn {
       height: 35px;
       font-size: 23px;
@@ -122,5 +110,17 @@
         background: @light-red;
       }
     }
+  }
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 15px);
+  }
+  to {
+    transform: translate(0, -0px);
   }
 }
