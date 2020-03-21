@@ -1,3 +1,5 @@
+@import (reference) "../../../styles/palette.less";
+
 #nav {
   &.ant-layout-header {
     height: 55px;
@@ -13,6 +15,15 @@
 
     &.transparent-nav {
       background: transparent;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #nav {
+    display: flex;
+    .navbar_full_scr {
+      display: none;
     }
   }
 }

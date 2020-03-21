@@ -1,17 +1,24 @@
 @import (reference) "../../styles/palette.less";
 
+.content-container {
+  padding: 75px 275px;
+  margin-top: 25px;
+}
 .contact-container {
   font-family: "Cairo", sans-serif;
   background: white;
-  padding: 25px;
+  padding: 75px;
   min-height: 500px;
   min-width: 550px;
-  border-radius: 10px;
-  border: 1px solid #e4e4e4;
-  margin-bottom: 25px;
 
-  & h1 {
+  .contact-icon {
     font-size: 35px;
+    margin-left: 25px;
+    color: @primary-text;
+    line-height: 0.5;
+  }
+  & h1 {
+    font-size: 40px;
     margin-bottom: 0;
     color: @primary-text;
   }
@@ -19,14 +26,21 @@
   & hr {
     margin-bottom: 25px;
     border-color: @primary-text;
+    width: 65%;
   }
 
   & .contact-prompt {
     width: 500px;
     font-size: 20px;
     color: @primary-text;
-    margin: 40px auto;
+    margin: 30px auto;
     text-align: center;
+  }
+
+  & .contact-form {
+    .ant-form-item {
+      margin-bottom: 35px;
+    }
   }
 
   & .ant-form label {
@@ -55,5 +69,73 @@
     font-size: 20px;
     border: 2px solid;
     border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 0;
+    margin-top: 1vw;
+    text-align: center;
+  }
+  .contact-container {
+    font-family: "Cairo", sans-serif;
+    background: white;
+    padding: 5vw 10vw;
+    min-height: 10vw;
+    min-width: 50vw;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 0;
+
+    .contact-icon {
+      font-size: 7vw;
+      margin-left: 15px;
+      color: @primary-text;
+      line-height: 0.7;
+    }
+
+    & h1 {
+      font-size: 8vw;
+      margin-bottom: 0;
+      color: @primary-text;
+    }
+
+    & hr {
+      margin-bottom: 0;
+      border-color: @primary-text;
+      width: 100%;
+    }
+
+    & .contact-prompt {
+      width: 100%;
+      font-size: 4vw;
+      margin: 25px auto;
+      text-align: center;
+    }
+
+    & .contact-form {
+      .ant-form-item {
+        margin-bottom: 3.5vw;
+      }
+    }
+
+    & .ant-form label {
+      font-size: 3.5vw;
+      color: @grey-light;
+    }
+
+    & .ant-input {
+      height: 10vw;
+      font-size: 4vw;
+      background-color: @input-background;
+    }
+
+    & .ant-btn {
+      height: 11vw;
+      padding: 1.5vw 5.5vw;
+      font-size: 5vw;
+      margin-top: 2vw;
+    }
   }
 }

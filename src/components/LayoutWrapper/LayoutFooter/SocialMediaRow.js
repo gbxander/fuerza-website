@@ -2,42 +2,35 @@ import React from "react"
 import { Row, Avatar } from "antd"
 import "./SocialMediaRow.less"
 
-const SocialMediaRow = ({ isFooter = false }) => {
+const SocialMediaRow = () => {
   const iconStyle = {
-    fontSize: isFooter ? 30 : 20,
+    fontSize: 30,
     marginRight: 15,
   }
 
   const iconSize = 50
   return (
-    <Row style={{ marginBottom: 20 }} className="social-media-row">
+    <Row className="social-media-row">
       <a
-        href="https://www.google.com/"
+        href="https://www.facebook.com/abner.rodriguez.7334"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Avatar icon="facebook" size={iconSize} style={iconStyle} />
+        <Avatar icon="facebook" className="social-media-icon" />
       </a>
       <a
-        href="https://www.google.com/"
+        href="https://www.instagram.com/fuerzabasketballassociation"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Avatar icon="instagram" size={iconSize} style={iconStyle} />
+        <Avatar icon="instagram" className="social-media-icon" />
       </a>
       <a
-        href="https://www.google.com/"
+        href="mailto:info@fuerzabasketball.org"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Avatar icon="youtube" size={iconSize} style={iconStyle} />
-      </a>
-      <a
-        href="https://www.google.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Avatar icon="mail" size={iconSize} style={iconStyle} />
+        <Avatar icon="mail" className="social-media-icon" />
       </a>
     </Row>
   )

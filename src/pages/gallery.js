@@ -1,15 +1,13 @@
 import React from "react"
+import Gallery from "../components/Gallery/Gallery"
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper"
 
-const Tuition = () => {
-  return <h1>Tuition</h1>
-}
-const TuitionGUI = () => {
+const GalleryGUI = () => {
   return (
     <LayoutWrapper>
-      <Tuition />
+      <Gallery />
     </LayoutWrapper>
   )
 }
 
-export default TuitionGUI
+export default GalleryGUI

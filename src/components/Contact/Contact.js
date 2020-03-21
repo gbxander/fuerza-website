@@ -2,9 +2,14 @@ import React from "react"
 import { Form, Input, Button, Row, Col, Icon, Layout } from "antd"
 import "./Contact.less"
 
-const { Content } = Layout
+import { Element } from "react-scroll"
 const { TextArea } = Input
 
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 class Contact extends React.Component {
   constructor(props) {
     super(props)
@@ -22,6 +27,13 @@ class Contact extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values)
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": "contact", ...values })
+        })
+          .then(() => alert("Success!"))
+          .catch(error => alert(error));
       }
     })
   }
@@ -47,94 +59,85 @@ class Contact extends React.Component {
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
-          span: 20,
-          offset: 0,
+          span: 10,
+          offset: 8,
         },
         sm: {
-          span: 11,
-          offset: 10,
+          span: 12,
+          offset: 11,
         },
       },
     }
 
     return (
-      <Layout>
-        <Content style={{ padding: "0 275px", marginTop: 25 }}>
-          <div className="contact-container">
-            <Col>
-              <Row type="flex" align="middle">
-                <h1>CONTACT US</h1>
-                <Icon
-                  type="mail"
-                  style={{
-                    fontSize: 35,
-                    marginLeft: 25,
-                    color: "#3e3e3e",
-                    lineHeight: 0.9,
-                  }}
-                />
-              </Row>
-              <hr></hr>
-            </Col>
-            <Col style={{ marginBottom: 20 }}>
-              <div className="contact-prompt">
-                Interested in learning more about our program? Get in touch with
-                us for more information.
-              </div>
-            </Col>
-            <Form
-              {...formItemLayout}
-              onSubmit={this.handleSubmit}
-              className="contact-form"
-            >
-              <Form.Item label="Name">
-                {getFieldDecorator("firstname", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "Please input your name.",
-                      whitespace: true,
-                    },
-                  ],
-                })(<Input />)}
-              </Form.Item>
-              <Form.Item label="E-mail">
-                {getFieldDecorator("email", {
-                  rules: [
-                    {
-                      type: "email",
-                      message: "The input is not valid E-mail!",
-                    },
-                    {
-                      required: true,
-                      message: "Please input your E-mail!",
-                    },
-                  ],
-                })(<Input />)}
-              </Form.Item>
-              <Form.Item label="Subject">
-                <Input />
-              </Form.Item>
-              <Form.Item label="Message">
-                {getFieldDecorator("message", {
-                  rules: [
-                    {
-                      required: true,
-                      message: "Message empty",
-                      whitespace: true,
-                    },
-                  ],
-                })(<TextArea autosize={{ minRows: 4 }} />)}
-              </Form.Item>
-              <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit">
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </div>
-        </Content>
-      </Layout>
+      <section id="contact">
+        <div className="contact-container">
+          <Col>
+            <Row type="flex" align="middle" justify="center">
+              <h1>CONTACT US</h1>
+              <Icon className="contact-icon" type="mail" />
+            </Row>
+            <hr></hr>
+          </Col>
+          <Col>
+            <div className="contact-prompt">
+              Interested in learning more about our program? &nbsp;Get in touch
+              with us for more information.
+            </div>
+          </Col>
+          <Form
+            {...formItemLayout}
+            onSubmit={this.handleSubmit}
+            className="contact-form"
+            netlify
+          >
+            <Form.Item label="Name">
+              {getFieldDecorator("name", {
+                rules: [
+                  {
+                    required: true,
+                    message: "Please input your name.",
+                    whitespace: true,
+                  },
+                ],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="E-mail">
+              {getFieldDecorator("email", {
+                rules: [
+                  {
+                    type: "email",
+                    message: "The input is not valid E-mail!",
+                  },
+                  {
+                    required: true,
+                    message: "Please input your E-mail!",
+                  },
+                ],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="Subject">
+              <Input />
+            </Form.Item>
+            <Form.Item label="Message">
+              {getFieldDecorator("message", {
+                rules: [
+                  {
+                    required: true,
+                    message: "Message empty",
+                    whitespace: true,
+                  },
+                ],
+              })(<TextArea autosize={{ minRows: 4 }} />)}
+            </Form.Item>
+            <Form.Item {...tailFormItemLayout}>
+              <Button type="primary" htmlType="submit">
+                Submit
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+      </section>
     )
   }
 }

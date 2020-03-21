@@ -1,47 +1,42 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Layout, Button } from "antd"
+import { Layout, Button, Icon, BackTop } from "antd"
+import About from "../About/About"
+import Events from "../Events/Events"
+import Teams from "../Teams/Teams"
+import Contact from "../Contact/Contact"
+import Donate from "../Donate/Donate"
 import "./Home.less"
-import { Link } from "@reach/router"
-
-const { Content } = Layout
+import { Element, Link } from "react-scroll"
 
 const Home = () => {
-  const imgData = useStaticQuery(graphql`
-    query {
-      imageOne: file(relativePath: { eq: "fuerza_coach.jpeg" }) {
-        childImageSharp {
-          fixed {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
   return (
     <React.Fragment>
-      <Layout>
-        <div className="home-hero">
+      <Layout className="home-container">
+        <BackTop />
+        <section id="home" className="home-hero">
           <div className="hero-text">
             <h1>FUERZA BASKETBALL ACADEMY</h1>
-            <p>'Driving towards success'</p>
-            <Link to="/about">
+            <p>'Hooping to make a difference'</p>
+            <Link to="about" smooth={true} activeClass="active-link">
               <Button>Learn More</Button>
             </Link>
+            <div className="hero-down-icon">
+              <Icon
+                type="down"
+                className="down-button"
+                style={{ fontSize: 35 }}
+              />
+            </div>
           </div>
+        </section>
+        <About />
+        <Teams />
+        <Events />
+        <div className="full-scr-contact">
+          <Contact />
         </div>
-
-        <Content
-          style={{
-            background: "white",
-            width: "900px",
-            margin: "25px auto",
-          }}
-        >
-          <div className="home-container">
-            <h1>ANNOUNCEMENTS</h1>
-          </div>
-        </Content>
+        <Donate />
       </Layout>
     </React.Fragment>
   )

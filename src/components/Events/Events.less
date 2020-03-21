@@ -1,0 +1,49 @@
+@import (reference) "../../styles/palette.less";
+
+@media (min-width: 769px) {
+  .events-container {
+    background: @alt-background;
+    min-height: 550px;
+    padding: 75px 50px;
+    width: 100%;
+    text-align: center;
+
+    & h1 {
+      color: @primary-text;
+      font-size: 40px;
+      margin-bottom: 0;
+      font-weight: 900;
+      font-family: "Cairo", sans-serif;
+    }
+
+    & .calendar-icon {
+      font-size: 35px;
+      color: @primary-text;
+      margin-left: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .events-container {
+    background: @alt-background;
+    min-height: 100vh;
+    padding: 50px 50px;
+    width: 100%;
+    text-align: center;
+
+    & h1 {
+      color: @primary-text;
+      font-size: 7vw;
+      font-weight: 900;
+      margin-bottom: 0;
+      font-family: "Cairo", sans-serif;
+    }
+
+    & .calendar-icon {
+      font-size: 35px;
+      color: @primary-text;
+      margin-left: 5px;
+    }
+  }
+}
