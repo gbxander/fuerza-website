@@ -1,5 +1,5 @@
 import React from "react"
-import { Layout, Row, Col, Button, Card } from "antd"
+import { Layout, Row, Col, Button, Card, Tooltip } from "antd"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { GiBasketballJersey } from "react-icons/gi"
@@ -72,11 +72,12 @@ const Teams = () => {
                     />
                   }
                 >
-                  <Card.Meta
-                    title="14U (8th Grade)"
-                    description={`BORN: Between 2003-2004`}
-                  />
-                  <Button type="primary">Register</Button>
+                  <Card.Meta title="14U (8th Grade)" />
+                  <Tooltip title="Registration coming soon!">
+                    <Button type="primary" disabled={true}>
+                      Register
+                    </Button>
+                  </Tooltip>
                 </Card>
               </Col>
               <Col span={7} offset={1}>
@@ -88,11 +89,12 @@ const Teams = () => {
                     />
                   }
                 >
-                  <Card.Meta
-                    title={<span>18U (High School) </span>}
-                    description={`BORN: Between 2003-2004`}
-                  />
-                  <Button type="primary">Register</Button>
+                  <Card.Meta title={<span>18U (High School) </span>} />
+                  <Tooltip title="Registration coming soon!">
+                    <Button type="primary" disabled={true}>
+                      Register
+                    </Button>
+                  </Tooltip>
                 </Card>
               </Col>
               <Col span={7} offset={1}>
@@ -104,11 +106,12 @@ const Teams = () => {
                     />
                   }
                 >
-                  <Card.Meta
-                    title="18U Girls (High School)"
-                    description={`BORN: Between 2003-2004`}
-                  />
-                  <Button type="primary">Register</Button>
+                  <Card.Meta title="18U Girls (High School)" />
+                  <Tooltip title="Registration coming soon!">
+                    <Button type="primary" disabled={true}>
+                      Register
+                    </Button>
+                  </Tooltip>
                 </Card>
               </Col>
             </Row>

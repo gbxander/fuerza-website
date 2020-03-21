@@ -5,6 +5,11 @@ import "./Contact.less"
 import { Element } from "react-scroll"
 const { TextArea } = Input
 
+const encode = (data) => {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 class Contact extends React.Component {
   constructor(props) {
     super(props)
@@ -22,6 +27,13 @@ class Contact extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values)
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({ "form-name": "contact", ...values })
+        })
+          .then(() => alert("Success!"))
+          .catch(error => alert(error));
       }
     })
   }
@@ -80,7 +92,7 @@ class Contact extends React.Component {
             netlify
           >
             <Form.Item label="Name">
-              {getFieldDecorator("firstname", {
+              {getFieldDecorator("name", {
                 rules: [
                   {
                     required: true,

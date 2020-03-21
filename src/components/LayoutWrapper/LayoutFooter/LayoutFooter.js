@@ -21,7 +21,7 @@ const LayoutFooter = () => {
         >
           {"CONNECT WITH US:"}
         </div>
-        <div style={footerContentStyle}>{`info@fuerza.com`}</div>
+        <div style={footerContentStyle}>{`info@fuerzabasketball.org`}</div>
         <SocialMediaRow isFooter={true} />
         <hr></hr>
         <Row type="flex" justify="center" className="footer-bottom">

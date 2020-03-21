@@ -12,28 +12,21 @@ const SocialMediaRow = () => {
   return (
     <Row className="social-media-row">
       <a
-        href="https://www.google.com/"
+        href="https://www.facebook.com/abner.rodriguez.7334"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Avatar icon="facebook" className="social-media-icon" />
       </a>
       <a
-        href="https://www.google.com/"
+        href="https://www.instagram.com/fuerzabasketballassociation"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Avatar icon="instagram" className="social-media-icon" />
       </a>
       <a
-        href="https://www.google.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Avatar icon="youtube" className="social-media-icon" />
-      </a>
-      <a
-        href="https://www.google.com/"
+        href="mailto:info@fuerzabasketball.org"
         target="_blank"
         rel="noopener noreferrer"
       >

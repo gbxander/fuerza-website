@@ -20,12 +20,21 @@ const Donate = () => {
             communities. We appreciate any contribution you feel inclined to
             make in support of our mission. Thank you!
           </div>
+         { /*
           <a href="https://www.paypal.com/" target="_blank">
             <Button>
               Donate <Icon type="heart" />
             </Button>
-          </a>
+          </a> */}
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="83GS3LYBAC4TL" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+        <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+        </form>
         </div>
+
+
       </div>
     </section>
   )

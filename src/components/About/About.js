@@ -35,7 +35,34 @@ const About = () => {
   `)
   return (
     <section id="about" className="about-layout">
-      <Col span={16} offset={4} style={{ marginBottom: 50 }}>
+      <div>
+        <Col
+          md={{ span: 12, offset: 6 }}
+          xs={{ span: 18, offset: 3 }}
+          style={{ marginBottom: 50 }}
+        >
+          <Row
+            type="flex"
+            align="middle"
+            justify="center"
+            className="about-header"
+          >
+            <h1>OUR MISSION</h1>
+            <IoIosRocket className="target-icon" />
+          </Row>
+          <div className="about-prompt">
+            <p>
+              To provide high quality and transformative youth basketball
+              training to athletes from underserved communities across the city
+              of Los Angeles.
+            </p>
+          </div>
+          <Col>
+            <div className="about-our-teams"></div>
+          </Col>
+        </Col>
+      </div>
+      <Col span={16} offset={4}>
         <Row
           type="flex"
           align="middle"
@@ -72,29 +99,6 @@ const About = () => {
           </Col>
         </Row>
       </Col>
-      <div>
-        <Col md={{ span: 12, offset: 6 }} xs={{ span: 18, offset: 3 }}>
-          <Row
-            type="flex"
-            align="middle"
-            justify="center"
-            className="about-header"
-          >
-            <h1>OUR MISSION</h1>
-            <IoIosRocket className="target-icon" />
-          </Row>
-          <div className="about-prompt">
-            <p>
-              To provide high quality and transformative youth basketball
-              training to athletes from underserved communities across the city
-              of Los Angeles.
-            </p>
-          </div>
-          <Col>
-            <div className="about-our-teams"></div>
-          </Col>
-        </Col>
-      </div>
     </section>
   )
 }
