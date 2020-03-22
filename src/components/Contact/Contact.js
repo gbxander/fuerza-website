@@ -5,10 +5,12 @@ import "./Contact.less"
 import { Element } from "react-scroll"
 const { TextArea } = Input
 
-const encode = (data) => {
-  return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
+const encode = data => {
+  const formData = new FormData()
+  Object.keys(data).forEach(e => {
+    formData.append(e, data[e])
+  })
+  return formData
 }
 class Contact extends React.Component {
   constructor(props) {
@@ -26,14 +28,12 @@ class Contact extends React.Component {
     e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values)
         fetch("/", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: encode({ "form-name": "contact", ...values })
+          body: encode({ "form-name": "contact", ...values }),
         })
           .then(() => alert("Success!"))
-          .catch(error => alert(error));
+          .catch(error => alert(error))
       }
     })
   }
