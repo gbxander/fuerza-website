@@ -1,0 +1,45 @@
+@import (reference) "../../styles/palette.less";
+
+.thanks-container {
+  font-family: "Cairo", sans-serif;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @primary-text;
+  & h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+
+  & p {
+    font-size: 23px;
+  }
+  .thanks-prompt {
+    text-align: center;
+    width: 700px;
+  }
+
+  .anticon-like {
+    font-size: 60px;
+    margin: 30px 0;
+  }
+
+  .ant-btn {
+    margin-top: 30px;
+    height: 35px;
+    padding: 0 25px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .thanks-container {
+    min-height: 75vh;
+    margin-bottom: 5vh;
+
+    .thanks-prompt {
+      width: 80vw;
+    }
+  }
+}
