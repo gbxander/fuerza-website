@@ -43,32 +43,51 @@
     }
   }
 
-  & .ant-form label {
-    font-size: 14px;
+  & label {
+    font-size: 15px;
     color: @grey-light;
   }
+  .form-ast {
+    color: red;
+  }
 
-  & .ant-input {
+  & input,
+  textarea {
     height: 40px;
-    font-size: 15px;
+    min-width: 500px;
+    font-size: 14px;
+    color: @primary-text;
     background-color: @input-background;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    padding: 10px;
 
     &:hover {
       border-color: @grey-light;
     }
 
     &:focus {
-      border: none;
+      outline: none;
       background-color: white;
     }
   }
+  .form-btn-container {
+    text-align: center;
+  }
 
-  & .ant-btn {
+  .form-btn {
     height: 40px;
     padding: 4px 25px;
     font-size: 20px;
     border: 2px solid;
     border-radius: 10px;
+    background-color: #1890ff;
+    color: white;
+    transition: 0.3s;
+  }
+
+  .form-btn:hover {
+    background-color: #3a9ffc;
   }
 }
 
@@ -83,7 +102,7 @@
     background: white;
     padding: 5vw 10vw;
     min-height: 10vw;
-    min-width: 50vw;
+    min-width: 20vw;
     border-radius: 10px;
     border: none;
     margin-bottom: 0;
@@ -93,6 +112,12 @@
       margin-left: 15px;
       color: @primary-text;
       line-height: 0.7;
+    }
+
+    & input,
+    textarea {
+      height: 40px;
+      min-width: 85vw;
     }
 
     & h1 {
@@ -112,30 +137,6 @@
       font-size: 4vw;
       margin: 25px auto;
       text-align: center;
-    }
-
-    & .contact-form {
-      .ant-form-item {
-        margin-bottom: 3.5vw;
-      }
-    }
-
-    & .ant-form label {
-      font-size: 3.5vw;
-      color: @grey-light;
-    }
-
-    & .ant-input {
-      height: 10vw;
-      font-size: 4vw;
-      background-color: @input-background;
-    }
-
-    & .ant-btn {
-      height: 11vw;
-      padding: 1.5vw 5.5vw;
-      font-size: 5vw;
-      margin-top: 2vw;
     }
   }
 }

@@ -1,147 +1,120 @@
-import React from "react"
-import { Form, Input, Button, Row, Col, Icon, Layout } from "antd"
+import React, { useState } from "react"
+import { navigate } from "gatsby-link"
+import { message, Row, Col, Icon } from "antd"
 import "./Contact.less"
 
-import { Element } from "react-scroll"
-const { TextArea } = Input
-
-const encode = data => {
-  const formData = new FormData()
-  Object.keys(data).forEach(e => {
-    formData.append(e, data[e])
-  })
-  return formData
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
 }
-class Contact extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      confirmDirty: false,
-      autoCompleteResult: [],
-    }
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleConfirmBlur = this.handleConfirmBlur.bind(this)
+const Contact = () => {
+  const [state, setState] = useState({})
+
+  const success = () => {
+    message.success("This is a success message")
   }
 
-  handleSubmit(e) {
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = e => {
     e.preventDefault()
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        fetch("/", {
-          method: "POST",
-          body: encode({ "form-name": "contact", ...values }),
-        })
-          .then(() => alert("Success!"))
-          .catch(error => alert(error))
-      }
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...state,
+      }),
     })
+      .then(() => {
+        success()
+        navigate(form.getAttribute("action"))
+      })
+      .catch(error => alert(error))
   }
 
-  handleConfirmBlur(e) {
-    const { value } = e.target
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value })
-  }
-
-  render() {
-    const { getFieldDecorator } = this.props.form
-
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 10 },
-        sm: { span: 6 },
-      },
-      wrapperCol: {
-        xs: { span: 10 },
-        sm: { span: 12 },
-      },
-    }
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 10,
-          offset: 8,
-        },
-        sm: {
-          span: 12,
-          offset: 11,
-        },
-      },
-    }
-
-    return (
-      <section id="contact">
-        <div className="contact-container">
-          <Col>
-            <Row type="flex" align="middle" justify="center">
-              <h1>CONTACT US</h1>
-              <Icon className="contact-icon" type="mail" />
-            </Row>
-            <hr></hr>
-          </Col>
-          <Col>
-            <div className="contact-prompt">
-              Interested in learning more about our program? &nbsp;Get in touch
-              with us for more information.
-            </div>
-          </Col>
-          <Form
-            {...formItemLayout}
-            onSubmit={this.handleSubmit}
-            className="contact-form"
-            netlify
+  return (
+    <section id="contact">
+      <div className="contact-container">
+        <Col>
+          <Row type="flex" align="middle" justify="center">
+            <h1>CONTACT US</h1>
+            <Icon className="contact-icon" type="mail" />
+          </Row>
+          <hr></hr>
+        </Col>
+        <Col>
+          <div className="contact-prompt">
+            Interested in learning more about our program? &nbsp;Get in touch
+            with us for more information.
+          </div>
+        </Col>
+        <Row type="flex" align="middle" justify="center">
+          <form
+            className="form-container"
+            name="contact"
+            method="post"
+            action="/thanks/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
           >
-            <Form.Item label="Name">
-              {getFieldDecorator("name", {
-                rules: [
-                  {
-                    required: true,
-                    message: "Please input your name.",
-                    whitespace: true,
-                  },
-                ],
-              })(<Input />)}
-            </Form.Item>
-            <Form.Item label="E-mail">
-              {getFieldDecorator("email", {
-                rules: [
-                  {
-                    type: "email",
-                    message: "The input is not valid E-mail!",
-                  },
-                  {
-                    required: true,
-                    message: "Please input your E-mail!",
-                  },
-                ],
-              })(<Input />)}
-            </Form.Item>
-            <Form.Item label="Subject">
-              <Input />
-            </Form.Item>
-            <Form.Item label="Message">
-              {getFieldDecorator("message", {
-                rules: [
-                  {
-                    required: true,
-                    message: "Message empty",
-                    whitespace: true,
-                  },
-                ],
-              })(<TextArea autosize={{ minRows: 4 }} />)}
-            </Form.Item>
-            <Form.Item {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
-        </div>
-      </section>
-    )
-  }
+            {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+              <label>
+                Don’t fill this out:{" "}
+                <input name="bot-field" onChange={handleChange} />
+              </label>
+            </p>
+            <p>
+              <label>
+                <span className="form-ast">*</span> Your name:
+                <br />
+                <input type="text" name="name" onChange={handleChange} />
+              </label>
+            </p>
+            <p>
+              <label>
+                <span className="form-ast">*</span> Your email:
+                <br />
+                <input type="email" name="email" onChange={handleChange} />
+              </label>
+            </p>
+            <p>
+              <label>
+                Subject:
+                <br />
+                <input type="text" name="subject" onChange={handleChange} />
+              </label>
+            </p>
+            <p>
+              <label>
+                <span className="form-ast">*</span> Message:
+                <br />
+                <textarea
+                  name="message"
+                  onChange={handleChange}
+                  style={{ height: 150 }}
+                />
+              </label>
+            </p>
+            <div data-netlify-recaptcha="true"></div>
+            <p className="form-btn-container">
+              <button className="form-btn" type="submit">
+                Send
+              </button>
+            </p>
+          </form>
+        </Row>
+      </div>
+    </section>
+  )
 }
 
-const WrappedRegistrationForm = Form.create({ name: "register" })(Contact)
-
-export default WrappedRegistrationForm
+export default Contact
